@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -20,14 +21,24 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "articleId")
     private Article article;
 
-    @Column(name = "nickname", unique = true, nullable = false)
+    @Column(name = "nickname", nullable = false)
     private String nickname;
 
     @Column(name = "body", nullable = false)
     private String body;
+
+    @Column(name = "date")
+    private Date date;
+
+    public Comment(Article article, String nickname, String body) {
+        this.article = article;
+        this.nickname = nickname;
+        this.body = body;
+        date = new Date();
+    }
 
 }

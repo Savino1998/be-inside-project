@@ -22,7 +22,7 @@ public class ArticleController {
     @PostMapping
     public ResponseEntity<URI> create(@RequestBody ArticleDto article) {
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/articles/{id}")
-                .buildAndExpand(articleService.create(article))
+                .buildAndExpand(articleService.create(article).getId())
                 .toUri()).build();
     }
 
