@@ -18,7 +18,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> getCategories() {
         List<Category> list = categoryRepository.findAll();
-        if (list.size() == 0) {
+        if (list.isEmpty()) {
             categoryRepository.save(new Category(1L, "Food"));
             categoryRepository.save(new Category(2L, "Sport"));
             categoryRepository.save(new Category(3L, "Informatic"));
