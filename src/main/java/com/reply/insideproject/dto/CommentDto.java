@@ -1,6 +1,5 @@
 package com.reply.insideproject.dto;
 
-import com.reply.insideproject.model.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ViewArticleDto {
+public class CommentDto {
 
-    private Long id;
-    private Category category;
+    private String nickname;
     private String body;
-    private String name;
 
 }
