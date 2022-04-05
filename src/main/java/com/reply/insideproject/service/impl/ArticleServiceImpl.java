@@ -31,7 +31,7 @@ public class ArticleServiceImpl implements ArticleService {
         if (articleRepository.findByName(article.getName()).isPresent()) {
             throw new AlreadyExistsException(article.getName(), Article.class);
         }
-        return articleRepository.save(new Article(categoryService.getById(article.getCategoryId()), article.getName(), article.getBody()));
+        return articleRepository.save(new Article(categoryService.getById(article.getIdCategory()), article.getName(), article.getBody()));
     }
 
     @Override
@@ -55,8 +55,8 @@ public class ArticleServiceImpl implements ArticleService {
         if (article.getBody() != null) {
             oldArticle.setBody(article.getBody());
         }
-        if (article.getCategoryId() != null) {
-            oldArticle.setCategory(categoryService.getById(article.getCategoryId()));
+        if (article.getIdCategory() != null) {
+            oldArticle.setCategory(categoryService.getById(article.getIdCategory()));
         }
         return articleRepository.save(oldArticle);
     }
