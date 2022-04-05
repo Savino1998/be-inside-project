@@ -5,6 +5,7 @@ import com.reply.insideproject.model.Category;
 import com.reply.insideproject.repository.CategoryRepository;
 import com.reply.insideproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,17 +16,19 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Override
-    public List<Category> getCategories() {
-        List<Category> list = categoryRepository.findAll();
-        if (list.isEmpty()) {
+    @Bean
+    public void init () {
+        if (categoryRepository.findAll().isEmpty()) {
             categoryRepository.save(new Category(1L, "Food"));
             categoryRepository.save(new Category(2L, "Sport"));
             categoryRepository.save(new Category(3L, "Informatic"));
             categoryRepository.save(new Category(4L, "Cinema"));
-            list = categoryRepository.findAll();
         }
-        return list;
+    }
+
+    @Override
+    public List<Category> getCategories() {
+        return categoryRepository.findAll();
     }
 
     @Override
