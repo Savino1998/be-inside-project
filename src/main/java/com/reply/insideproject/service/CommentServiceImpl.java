@@ -1,11 +1,9 @@
-package com.reply.insideproject.service.impl;
+package com.reply.insideproject.service;
 
 import com.reply.insideproject.dto.CommentDto;
 import com.reply.insideproject.exception.NotFoundException;
 import com.reply.insideproject.model.Comment;
 import com.reply.insideproject.repository.CommentRepository;
-import com.reply.insideproject.service.ArticleService;
-import com.reply.insideproject.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

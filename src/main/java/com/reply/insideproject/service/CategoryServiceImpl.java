@@ -1,9 +1,8 @@
-package com.reply.insideproject.service.impl;
+package com.reply.insideproject.service;
 
 import com.reply.insideproject.exception.NotFoundException;
 import com.reply.insideproject.model.Category;
 import com.reply.insideproject.repository.CategoryRepository;
-import com.reply.insideproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,7 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepository categoryRepository;
 
     @Bean
-    public void init () {
+    public void init() {
         if (categoryRepository.findAll().isEmpty()) {
             categoryRepository.save(new Category(1L, "Food"));
             categoryRepository.save(new Category(2L, "Sport"));
