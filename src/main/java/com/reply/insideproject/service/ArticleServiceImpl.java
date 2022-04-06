@@ -1,4 +1,4 @@
-package com.reply.insideproject.service.impl;
+package com.reply.insideproject.service;
 
 import com.reply.insideproject.dto.ArticleDto;
 import com.reply.insideproject.exception.AlreadyExistsException;
@@ -6,8 +6,6 @@ import com.reply.insideproject.exception.NotFoundException;
 import com.reply.insideproject.model.Article;
 import com.reply.insideproject.repository.ArticleRepository;
 import com.reply.insideproject.repository.CommentRepository;
-import com.reply.insideproject.service.ArticleService;
-import com.reply.insideproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
