@@ -44,12 +44,8 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment update(Long idArticle, Long id, CommentDto comment) {
         Comment newComment = getById(idArticle, id);
-        if (comment.getNickname() != null) {
-            newComment.setNickname(comment.getNickname());
-        }
-        if (comment.getBody() != null) {
-            newComment.setBody(comment.getBody());
-        }
+        newComment.setNickname(comment.getNickname());
+        newComment.setBody(comment.getBody());
         newComment.setDate(new Date());
         return commentRepository.save(newComment);
     }
