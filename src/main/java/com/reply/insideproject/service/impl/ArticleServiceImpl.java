@@ -48,17 +48,11 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article update(Long id, ArticleDto article) {
-        Article oldArticle = getById(id);
-        if (article.getName() != null) {
-            oldArticle.setName(article.getName());
-        }
-        if (article.getBody() != null) {
-            oldArticle.setBody(article.getBody());
-        }
-        if (article.getIdCategory() != null) {
-            oldArticle.setCategory(categoryService.getById(article.getIdCategory()));
-        }
-        return articleRepository.save(oldArticle);
+        Article newArticle = getById(id);
+        newArticle.setName(article.getName());
+        newArticle.setBody(article.getBody());
+        newArticle.setCategory(categoryService.getById(article.getIdCategory()));
+        return articleRepository.save(newArticle);
     }
 
     @Override
