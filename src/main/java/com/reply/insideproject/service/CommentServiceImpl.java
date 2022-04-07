@@ -2,6 +2,7 @@ package com.reply.insideproject.service;
 
 import com.reply.insideproject.dto.CommentDto;
 import com.reply.insideproject.exception.NotFoundException;
+import com.reply.insideproject.model.Article;
 import com.reply.insideproject.model.Comment;
 import com.reply.insideproject.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void deleteAllByIdArticle(Long idArticle) {
-        commentRepository.deleteAllByArticle(idArticle);
+    public void deleteAllByIdArticle(Article article) {
+        commentRepository.deleteAllByArticle(article);
     }
 }
