@@ -117,9 +117,9 @@ class CommentServiceImplTest {
     @Test
     void deleteAllByIdArticle() {
 
-        doNothing().when(commentRepository).deleteAllByArticle(any(Long.class));
-        assertDoesNotThrow(() -> commentService.deleteAllByIdArticle(article.getId()));
-        verify(commentRepository).deleteAllByArticle(any(Long.class));
+        doNothing().when(commentRepository).deleteAllByArticle(any(Article.class));
+        assertDoesNotThrow(() -> commentService.deleteAllByIdArticle(article));
+        verify(commentRepository).deleteAllByArticle(any(Article.class));
 
     }
 

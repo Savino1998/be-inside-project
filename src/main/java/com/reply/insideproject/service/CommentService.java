@@ -1,6 +1,7 @@
 package com.reply.insideproject.service;
 
 import com.reply.insideproject.dto.CommentDto;
+import com.reply.insideproject.model.Article;
 import com.reply.insideproject.model.Comment;
 import org.springframework.data.domain.Page;
 
@@ -16,6 +17,6 @@ public interface CommentService {
 
     void delete(Long idArticle, Long id);
 
-    void deleteAllByIdArticle(Long idArticle);
+    void deleteAllByIdArticle(Article article);
 
 }
