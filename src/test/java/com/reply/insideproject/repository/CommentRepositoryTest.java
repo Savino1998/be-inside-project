@@ -31,9 +31,9 @@ class CommentRepositoryTest {
 
     @Test
     void deleteAllByArticle() {
-        doNothing().when(commentRepository).deleteAllByArticle(any(Long.class));
-        assertDoesNotThrow(() -> commentRepository.deleteAllByArticle(comment.getId()));
-        verify(commentRepository).deleteAllByArticle(any(Long.class));
+        doNothing().when(commentRepository).deleteAllByArticle(any(Article.class));
+        assertDoesNotThrow(() -> commentRepository.deleteAllByArticle(new Article()));
+        verify(commentRepository).deleteAllByArticle(any(Article.class));
     }
 
 }

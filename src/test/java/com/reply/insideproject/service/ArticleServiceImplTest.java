@@ -106,13 +106,13 @@ class ArticleServiceImplTest {
 
         when(articleRepository.findById(any(Long.class))).thenReturn(Optional.of(article));
         doNothing().when(articleRepository).delete(any(Article.class));
-        doNothing().when(commentRepository).deleteAllByArticle(any(Long.class));
+        doNothing().when(commentRepository).deleteAllByArticle(any(Article.class));
 
         assertDoesNotThrow(() -> articleService.delete(article.getId()));
 
         verify(articleRepository).findById(any(Long.class));
         verify(articleRepository).delete(any(Article.class));
-        verify(commentRepository).deleteAllByArticle(any(Long.class));
+        verify(commentRepository).deleteAllByArticle(any(Article.class));
 
     }
 
